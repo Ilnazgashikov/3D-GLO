@@ -4,6 +4,13 @@ const validator = () => {
     const emailInputs = document.querySelectorAll('input[Type="email"]');
     const telInputs = document.querySelectorAll('input[Type="tel"]');
 
+    const calcInputs = document.querySelectorAll("input.calc-item");
+ 
+    calcInputs.forEach((item) => {
+      item.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D+/g, "");
+      });
+    });
     textInputs.forEach((item) => {
         item.addEventListener("input", (e) => {
             e.target.value = e.target.value.replace(/[^а-яА-Я -]/g, "");

@@ -30,7 +30,8 @@ const calc = (price = 100) => {
         let sumTotal = 0
         let count =  Math.floor(totalValue / 100)
         interval = setInterval(() => {
-            if (totalValue - sumTotal < 150) {
+            if (totalValue - sumTotal < count) {
+                console.log(count)
                 total.textContent = totalValue
                 clearInterval(interval)
             }

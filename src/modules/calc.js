@@ -26,18 +26,20 @@ const calc = (price = 100) => {
         }
         else {
             totalValue = 0
+            total.textContent = Math.floor(totalValue)
         }
         let sumTotal = 0
         let count =  Math.floor(totalValue / 100)
+        console.log(totalValue)
         interval = setInterval(() => {
             if (totalValue - sumTotal < count) {
-                console.log(count)
-                total.textContent = totalValue
+                total.textContent = Math.floor(totalValue)
                 clearInterval(interval)
             }
             else if (sumTotal < totalValue) {
+                console.log(totalValue)
                 sumTotal += count
-                total.textContent = sumTotal
+                total.textContent = Math.floor(sumTotal)
             }
             else {
                 clearInterval(interval)

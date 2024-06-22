@@ -37,7 +37,6 @@ const calc = (price = 100) => {
                 clearInterval(interval)
             }
             else if (sumTotal < totalValue) {
-                console.log(totalValue)
                 sumTotal += count
                 total.textContent = Math.floor(sumTotal)
             }

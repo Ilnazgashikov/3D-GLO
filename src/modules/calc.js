@@ -6,6 +6,7 @@ const calc = (price = 100) => {
     const calcDay = document.querySelector('.calc-day')
     const total = document.getElementById('total')
     const countCalc = () => {
+        let interval
         const calcTypeValue = calcType.options[calcType.selectedIndex].value
         const calcSquareValue = calcSquare.value
         let totalValue = 0
@@ -26,7 +27,21 @@ const calc = (price = 100) => {
         else {
             totalValue = 0
         }
-        total.textContent = totalValue
+        let startSumTotal = 0
+        let count =  Math.floor(totalValue / 100)
+        interval = setInterval(() => {
+            if (totalValue - startSumTotal < 150) {
+                total.textContent = totalValue
+                clearInterval(interval)
+            }
+            else if (startSumTotal < totalValue) {
+                startSumTotal += count
+                total.textContent = startSumTotal
+            }
+            else {
+                clearInterval(interval)
+            }
+        }, 1)
     }
     calcBlock.addEventListener('input', (e) => {
         if (e.target === calcType || e.target === calcSquare ||
